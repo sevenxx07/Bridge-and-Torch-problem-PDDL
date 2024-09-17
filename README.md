@@ -26,14 +26,14 @@ easy to model in PDDL. Thus, assume that the guys cannot cross bridges in parall
  
  Actions:<br />
  * cross
-  - parameters: guy1, guy2, from, to
-  - precondition: at(guy1, from) ∧ at(guy2,from) ∧ connected(from,
+      1. parameters: guy1, guy2, from, to
+      2. precondition: at(guy1, from) ∧ at(guy2,from) ∧ connected(from,
  to) ∧ (hasTorch(guy1) ∨ hasTorch(guy2)) ∧ greater(guy1, guy2)
-  - effect: ¬at(guy1,from)∧ ¬at(guy2,from)∧ at(guy1, to) ∧ at(guy2,
+      3. effect: ¬at(guy1,from)∧ ¬at(guy2,from)∧ at(guy1, to) ∧ at(guy2,
  to)
  * in action cross we also increase totalCost by guyCost(guy1)
  * giveTorch
-  - parameters: giver, receiver, location
-  - precondition: at(giver, location) ∧ at(receiver, location) ∧ hasTorch(giver)
+      1. parameters: giver, receiver, location
+      2. precondition: at(giver, location) ∧ at(receiver, location) ∧ hasTorch(giver)
  ∧ ¬hasTorch(reciever)
-  - effect: hasTorch(receiver) ∧ ¬hasTorch(giver)
+      3. effect: hasTorch(receiver) ∧ ¬hasTorch(giver)
