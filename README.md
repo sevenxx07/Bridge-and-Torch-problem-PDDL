@@ -10,27 +10,30 @@ bridges in parallel to optimize the time needed to get the guys to their final d
 easy to model in PDDL. Thus, assume that the guys cannot cross bridges in parallel. If one or two guys cross a bridge, the remaining guys wait until they finish the crossing. 
 
 # Domain
- Terms:
- • guy, island: representing guys and locations in the domain.
- Predicates:
- • at(guy,island): represents if guy is on specific island
- • hasTorch(guy): represents if guy has a torch
- • connected(from,to): represents the connection between two islands
- • greater(guy1,guy2): represents inequality between crossing speed of two
- guys
- Functions:
- • guyCost(guy): represents crossing speed of a guy
- • totalCost: represents metric we want to minimise
- Actions:
- • cross
- 1. parameters: guy1, guy2, from, to
- 2. precondition: at(guy1, from) ∧ at(guy2,from) ∧ connected(from,
+ Terms:<br />
+ * guy, island: representing guys and locations in the domain.<br />
+ 
+ Predicates:<br />
+ * at(guy,island): represents if guy is on specific island
+ * hasTorch(guy): represents if guy has a torch
+ * connected(from,to): represents the connection between two islands
+ * greater(guy1,guy2): represents inequality between crossing speed of two
+ guys<br />
+ 
+ Functions:<br />
+ * guyCost(guy): represents crossing speed of a guy
+ * totalCost: represents metric we want to minimise<br />
+ 
+ Actions:<br />
+ * cross
+  - parameters: guy1, guy2, from, to
+  - precondition: at(guy1, from) ∧ at(guy2,from) ∧ connected(from,
  to) ∧ (hasTorch(guy1) ∨ hasTorch(guy2)) ∧ greater(guy1, guy2)
- 3. effect: ¬at(guy1,from)∧ ¬at(guy2,from)∧ at(guy1, to) ∧ at(guy2,
+  - effect: ¬at(guy1,from)∧ ¬at(guy2,from)∧ at(guy1, to) ∧ at(guy2,
  to)
- • in action cross we also increase totalCost by guyCost(guy1)
- • giveTorch
-1. parameters: giver, receiver, location
- 2. precondition: at(giver, location) ∧ at(receiver, location) ∧ hasTorch(giver)
+ * in action cross we also increase totalCost by guyCost(guy1)
+ * giveTorch
+  - parameters: giver, receiver, location
+  - precondition: at(giver, location) ∧ at(receiver, location) ∧ hasTorch(giver)
  ∧ ¬hasTorch(reciever)
- 3. effect: hasTorch(receiver) ∧ ¬hasTorch(giver)
+  - effect: hasTorch(receiver) ∧ ¬hasTorch(giver)
