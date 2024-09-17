@@ -1,0 +1,35 @@
+(define (problem p02) (:domain bat)
+(:objects a b c d e f - guy l r - island)
+
+(:init
+    (at a l)
+    (at b l)
+    (at c l)
+    (at d l)
+    (at e l)
+    (at f l)
+    (has-torch a)
+    (has-torch b)
+    (connected l r)
+    (connected r l)
+    (greater f a) (greater f b) (greater f c) (greater f d) (greater f e) (greater f f)
+    (greater e a) (greater e b) (greater e c) (greater e d) (greater e e)
+    (greater d a) (greater d b) (greater d c) (greater d d)
+    (greater c a) (greater c b) (greater c c)
+    (greater b a) (greater b b) 
+    (greater a a)
+    (= (guy-cost a) 1)
+    (= (guy-cost b) 2)
+    (= (guy-cost c) 3)
+    (= (guy-cost d) 4)
+    (= (guy-cost e) 5)
+    (= (guy-cost f) 6)
+)
+
+(:goal (and
+    (at a r) (at b r) (at c r) (at d r) (at e r) (at f r)
+))
+
+;un-comment the following line if metric is needed
+(:metric minimize (total-cost))
+)
